@@ -22,7 +22,8 @@ st.plotly_chart(fig)
 
 
 # Shuffle and split the data into training and testing subsets
-X_train, X_test, y_train, y_test = train_test_split(features, prices, test_size=0.2, random_state = 42)
+testSplit = st.sidebar.slider(label = "test/train split", min_value = 0, max_value = 1, value = 0.2, step = 0.1)
+X_train, X_test, y_train, y_test = train_test_split(features, prices, test_size=testSplit, random_state = 42)
 
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import ShuffleSplit, train_test_split
